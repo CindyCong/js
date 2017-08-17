@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-1.11.3.js"></script>
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<h1>表单事件-onchange-地址联动</h1>
+		<hr>
+		<select id="con"></select>
+		<select id="city"></select>
+		<script type="text/javascript">
+    		var con = document.getElementById('con');
+    		var city = document.getElementById('city');
+    		
+    		var conList = ['中国','美国','日本'];
+    		var cityList = new Array();
+    		cityList[0] = ['北京','上海','广州'];
+    		cityList[1] = ['纽约','华盛顿','旧金山'];
+    		cityList[2] = ['大阪','静冈'];
+    		
+    		for(var i = 0;i < conList.length; i++) {
+    			con.add(new Option(conList[i], i));
+    		}
+    		con.onchange = function () {
+    			city.options.length = 0;
+    			var index = con.value;
+    			var citys = cityList[index];
+    			for(var i = 0; i < citys.length; i++) {
+    				city.add(new Option(citys[i], i));
+    			}
+    		}
+    		con.onchange();
+		</script>
+	</body>
+</html>
+
